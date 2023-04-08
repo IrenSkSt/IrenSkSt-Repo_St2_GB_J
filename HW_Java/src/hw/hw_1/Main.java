@@ -1,6 +1,6 @@
-package hw;
+package hw.hw_1;
 
-import hw.hw_1.Hw_1_1;
+import hw.hw_1.task1.Hw1_1_0;
 
 /**
  * Main
@@ -9,6 +9,6 @@ import hw.hw_1.Hw_1_1;
 public class Main {
 
     public static void main(String[] args) {
-        Hw_1_1.run();
+        Hw1_1_0.inputNum(); // ЗАДАЧА 1
     }
 }
