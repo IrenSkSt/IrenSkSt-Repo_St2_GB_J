@@ -13,9 +13,12 @@ public class Hw1_3_0 {
         char[] operators = new char[] { '=' };
         // пока калькулятор работает только с 1 операцией
 
-        Hw1_3_1.inputAndCheckData(numbers, operators);
+        boolean[] flag_err = new boolean[] { true };
+
+        Hw1_3_1.inputAndCheckData(numbers, operators, flag_err);
         // System.out.println(numbers[0]); // для проверки
         // System.out.println(numbers[1]); // для проверки
+        // System.out.println(flag_err[0]); // для проверки
 
         // Hw1_3_2.inputAndCheckOperator(operators);
         // System.out.println(operators[0]); // для проверки
@@ -23,7 +26,7 @@ public class Hw1_3_0 {
         // Hw1_3_1.inputAndCheckNum(2, numbers);
         // System.out.println(numbers[1]); // для проверки
 
-        Hw1_3_3.calculate(numbers[0], operators[0], numbers[1]);
+        Hw1_3_3.calculate(numbers, operators, flag_err);
     }
 
 }
