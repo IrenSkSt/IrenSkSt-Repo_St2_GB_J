@@ -1,5 +1,7 @@
 package hw.hw_2;
 
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -8,7 +10,10 @@ import java.util.Scanner;
  * Пузырьковая сортировка числового массива
  * Сортируем от min к max
  */
-public class Hw1 {
+public class Hw2_1 {
+
+    private static final Logger LOG = Log.log(Hw2_1.class.getName());
+
     public static void sortBoobleArrNum() {
 
         int[] arrInt = randomArrIntNum();
@@ -21,10 +26,17 @@ public class Hw1 {
                         arrInt[j] = arrInt[j + 1];
                         arrInt[j + 1] = temp;
                     }
+                    // String e = "Итерация " + (i + 1) + ": " + Arrays.toString(arrInt);
+
+                    LOG.log(Level.INFO, e.getMessage());
                 }
             }
             System.out.println("По возрастанию: " + Arrays.toString(arrInt));
         }
+    }
+
+    private static Object getName() {
+        return null;
     }
 
     public static int[] randomArrIntNum() {
