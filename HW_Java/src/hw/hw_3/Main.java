@@ -1,8 +1,4 @@
-package hw.hw_1;
-
-import hw.hw_1.task1.Hw1_1_0;
-import hw.hw_1.task2.Hw1_2_0;
-import hw.hw_1.task3.Hw1_3_0;
+package hw.hw_3;
 
 /**
  * Main
