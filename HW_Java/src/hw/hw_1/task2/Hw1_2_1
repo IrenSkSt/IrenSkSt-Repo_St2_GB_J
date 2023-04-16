@@ -1,0 +1,90 @@
+// ЧЕРНОВИК
+
+// package hw.hw_1.task2;
+
+// public class Hw1_2_0 {
+//     public static void findSimpleNumbers1to1000() {
+
+//         // int[] list_simple_num = new int[] { 2, 3, 5, 7, 11, 13 };
+//         // для отсева по простым делителям, т.к. это операция быстрее, чем гонять циклы
+//         // исключение =1 (т.к. делится только на себя)
+
+//         for (int i = 2; i <= 1000; i++) {
+//             boolean flag = true;
+//             if (i == 2 || i == 3)
+//                 System.out.printf("%d ", i);
+//             if (i > 3) {
+//                 while (flag == true) {
+//                     // отсев чисел, не относящихся к простым с наибольшей верояьностью, по делителям
+//                     if (i % 2 == 0 || i % 3 == 0) {
+//                         flag = false;
+//                         // System.out.println(i); // для проверки
+//                         // System.out.println(flag); // для проверки
+//                     } else {
+//                         // отсев чисел, не относящихся к простым,
+//                         // при наличии хоть одного делителя до (квадратного корня из числа) +1
+//                         for (int j = 3; j <= Math.sqrt(i) + 1; j = j + 2) {
+//                             if (i % j == 0) {
+//                                 flag = false;
+//                                 // System.out.println(i); // для проверки
+//                                 // System.out.println(j); // для проверки
+//                                 // System.out.println(flag); // для проверки
+//                             }
+
+//                         }
+//                         if (flag) {
+//                             System.out.printf("%d ", i);
+//                             flag = false;
+//                         }
+//                     }
+
+//                 }
+//             }
+
+//         }
+//         System.out.println("\n");
+//     }
+// }
+
+
+
+// вариант 2: не доделан (/2 и /3 первичный отсев добавить)
+
+        // // для отсева по простым делителям, т.к. это операция быстрее, чем гонять циклы
+
+        // for (int i = 2; i <= 10; i++) {
+        //     boolean flag = true;
+        //     if (i == 2 || i == 3) {
+        //         System.out.printf("%d ", i);
+        //     } else {
+
+        //         while (flag = true) {
+        //             // отсев чисел, не относящихся к простым с наибольшей верояьностью, по делителям
+        //             if (i > 13) {
+        //                 for (int k : list_simple_num) {
+        //                     if (i % k == 0)
+        //                         flag = false;
+        //                 }
+        //             } else {
+        //                 // отсев чисел, не относящихся к простым,
+        //                 // при наличии хоть одного делителя до (квадратного корня из числа) +1
+        //                 for (int j = 3; j <= Math.sqrt(i) + 1; j = j + 2) {
+        //                     if (i % j == 0) {
+        //                         flag = false;
+
+        //                     }
+
+        //                 }
+        //                 if (flag) {
+        //                     System.out.printf("%d ", i);
+        //                     flag = false;
+        //                 }
+        //             }
+
+        //         }
+
+        //     }
+
+        // }
+
+        // System.out.println("\n");
