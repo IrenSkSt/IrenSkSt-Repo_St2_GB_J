@@ -12,8 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
         // Hw3_1.mergeSortArrList(); // ЗАДАЧА 1
-        Hw3_2.findAndDelEvenNum(); // ЗАДАЧА 2
-        // Hw3_3.analiseArrList(); // ЗАДАЧА 3
+        // Hw3_2.findAndDelEvenNum(); // ЗАДАЧА 2
+        Hw3_3.analiseArrList(); // ЗАДАЧА 3
 
     }
 }
