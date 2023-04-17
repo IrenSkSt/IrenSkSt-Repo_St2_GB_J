@@ -13,13 +13,13 @@ public class Hw3_2 {
 
         createRandomIntArrList();
         delEvenNumFromArrList();
-        System.out.println(arrList);
+        System.out.println("Элементы с чётными значениями удалены: \n" + arrList);
     }
 
     public static void delEvenNumFromArrList() {
         for (int i = 0; i < arrList.size(); i++) {
             if (arrList.get(i) % 2 == 0) {
-                System.out.println("Delete:" + arrList.get(i)); // для проверки
+                // System.out.println("Delete:" + arrList.get(i)); // для проверки
                 arrList.remove(i);
                 i--;
             }
