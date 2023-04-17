@@ -8,13 +8,13 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class Hw3_3 {
-    public static ArrayList<Integer> arrLisNew = new ArrayList<>();
+    public static ArrayList<Integer> arrListNew = new ArrayList<>();
 
     public static void analiseArrList() {
 
         createRandomIntArrList();
 
-        if (arrLisNew.size() <= 1) {
+        if (arrListNew.size() <= 1) {
             System.out.println("Для массива из одного элемента вычисление показателей не имеет смысла.");
         } else {
             calculateMinMaxAvarage();
@@ -33,7 +33,7 @@ public class Hw3_3 {
         int maxItem = 0;
         double averageArr = 0;
 
-        Iterator<Integer> iterator = arrLisNew.iterator();
+        Iterator<Integer> iterator = arrListNew.iterator();
         int sum = 0;
         while (iterator.hasNext()) {
             int temp = iterator.next();
@@ -43,11 +43,11 @@ public class Hw3_3 {
                 maxItem = temp;
             sum = sum + temp;
         }
-        averageArr = ((double) sum / (double) (arrLisNew.size()));
+        averageArr = ((double) sum / (double) (arrListNew.size()));
         // System.out.println(sum); // для проверки
 
-        System.out.println("Min =" + minItem);
-        System.out.println("Max =" + maxItem);
+        System.out.println("Min = " + minItem);
+        System.out.println("Max = " + maxItem);
         System.out.printf("Average = %.4f\n", averageArr);
     }
 
@@ -56,9 +56,9 @@ public class Hw3_3 {
         Random random = new Random();
         int sizeArr = (int) (Math.random() * 10 + 1); // от 1 до 10
         for (int i = 0; i < sizeArr; i++) {
-            arrLisNew.add(random.nextInt(-10, 11)); // от -10 до 10
+            arrListNew.add(random.nextInt(-10, 11)); // от -10 до 10
         }
 
-        System.out.println(arrLisNew);
+        System.out.println(arrListNew);
     }
 }
