@@ -10,14 +10,16 @@ import java.util.Random;
 
 public class Hw3_1 {
     public static ArrayList<Integer> arrayList = new ArrayList<>();
+    public static ArrayList<Integer> arrayListSortingToMax = new ArrayList<>();
 
     public static void mergeSortArrList() {
 
         createRandomIntArrList();
         System.out.println(arrayList);
+        arrayListSortingToMax = new ArrayList<>(arrayList);
 
         // сделали сортировку на дублекате, но можно было и сразу входящий сортировать
-        ArrayList<Integer> arrayListSortingToMax = new ArrayList<>(arrayList);
+        // ArrayList<Integer> arrayListSortingToMax = new ArrayList<>(arrayList);
 
         arrayListSortingToMax = new ArrayList<>(sortedArrList(arrayListSortingToMax, 0, arrayList.size() - 1));
 
@@ -27,11 +29,11 @@ public class Hw3_1 {
 
     public static ArrayList<Integer> sortedArrList(ArrayList<Integer> arr, int left, int right) {
 
-        ArrayList<Integer> arrTemp = new ArrayList<>(arr);
+        // ArrayList<Integer> arrTemp = new ArrayList<>(arr);
         // System.out.println(arrTemp); // для проверки
         int l = left; // left
         int r = right; // right
-        int center = right / 2;
+        int center = left + (right - left) / 2;
         // System.out.println(l);
         // System.out.println(center);
         // System.out.println(r);
@@ -52,33 +54,36 @@ public class Hw3_1 {
 
         while (l <= r) {
 
-            while (arrTemp.get(l) < arrTemp.get(center))
+            while (arr.get(l) < arr.get(center))
                 l++;
-            while (arrTemp.get(r) > arrTemp.get(center))
+            while (arr.get(r) > arr.get(center))
                 r--;
 
             if (l <= r) {
-                int temp = arrTemp.get(l);
-                arrTemp.set(l, arrTemp.get(r));
-                arrTemp.set(r, temp);
+                int temp = arr.get(l);
+                arr.set(l, arr.get(r));
+                arr.set(r, temp);
                 // System.out.println(temp); // для проверки
                 l++;
                 r--;
             }
         }
-        System.out.println(arrTemp); // для проверки
+        // System.out.println(arr); // для проверки
+        // System.out.println(l); // для проверки
+        // System.out.println(center); // для проверки
+        // System.out.println(r); // для проверки
 
         if (l < right)
-            sortedArrList(arrTemp, l, right);
+            sortedArrList(arr, l, right);
         if (left < r)
-            sortedArrList(arrTemp, left, r);
+            sortedArrList(arr, left, r);
 
-        return arrTemp;
+        return arr;
     }
 
     public static void createRandomIntArrList() {
         int size = (int) (Math.random() * 10 + 2); // от 2-х до 11
-        // System.out.println("Размер массива: " + size);
+        System.out.println("Размер массива: " + size);
 
         arrayList = new ArrayList<>(size);
         Random random = new Random();
