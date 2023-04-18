@@ -30,17 +30,7 @@ public class Hw2_2 {
 
         String[] juornal = inStr.split("},"); // Журнал успеваемости
 
-        // для проверки
-        // for (String item : juornal) {
-        // System.out.println(item);
-        // }
-        // System.out.println(juornal[0]); // для проверки
-
         splitJsonStr(juornal);
-
-        // System.out.println(studentsList[0]); // для проверки
-        // System.out.println(gradesList[0]); // для проверки
-        // System.out.println(classesList[0]); // для проверки
 
         showReportStudies();
 
