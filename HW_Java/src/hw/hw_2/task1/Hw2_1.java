@@ -1,4 +1,4 @@
-package hw.hw_2;
+package hw.hw_2.task1;
 
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;

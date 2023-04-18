@@ -1,4 +1,4 @@
-package hw.hw_2;
+package hw.hw_2.task2;
 
 public class Hw2_2 {
 
