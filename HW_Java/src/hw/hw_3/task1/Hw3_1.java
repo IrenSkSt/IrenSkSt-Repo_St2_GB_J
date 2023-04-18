@@ -5,11 +5,11 @@
 package hw.hw_3.task1;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Hw3_1 {
     public static ArrayList<Integer> arrayList = new ArrayList<>();
+    // сделали сортировку на дублекате, но можно было и сразу входящий сортировать
     public static ArrayList<Integer> arrayListSortingToMax = new ArrayList<>();
 
     public static void mergeSortArrList() {
@@ -17,9 +17,6 @@ public class Hw3_1 {
         createRandomIntArrList();
         System.out.println(arrayList);
         arrayListSortingToMax = new ArrayList<>(arrayList);
-
-        // сделали сортировку на дублекате, но можно было и сразу входящий сортировать
-        // ArrayList<Integer> arrayListSortingToMax = new ArrayList<>(arrayList);
 
         arrayListSortingToMax = new ArrayList<>(sortedArrList(arrayListSortingToMax, 0, arrayList.size() - 1));
 
@@ -29,28 +26,12 @@ public class Hw3_1 {
 
     public static ArrayList<Integer> sortedArrList(ArrayList<Integer> arr, int left, int right) {
 
-        // ArrayList<Integer> arrTemp = new ArrayList<>(arr);
-        // System.out.println(arrTemp); // для проверки
         int l = left; // left
         int r = right; // right
         int center = left + (right - left) / 2;
-        // System.out.println(l);
-        // System.out.println(center);
-        // System.out.println(r);
-
-        // -----------------------------
-        // test для проверки:
-        // System.out.println(arrTemp.get(l) < center);
-        // if (arrTemp.get(l) < center)
-        // l++;
-        // else {
-        // int temp = arrTemp.get(l);
-        // System.out.println(temp);
-        // arrTemp.set(l, arrTemp.get(r));
-        // arrTemp.set(r, temp);
-        // }
-        // System.out.println(arrTemp); // для проверки
-        // -----------------------------
+        // System.out.println(l); // для проверки
+        // System.out.println(center); // для проверки
+        // System.out.println(r); // для проверки
 
         while (l <= r) {
 
