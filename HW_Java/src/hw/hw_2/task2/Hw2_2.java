@@ -1,3 +1,8 @@
+/**Задача 2
+ * Распарсить входящую json-строку
+ * и распечатать по шаблону отчет по успеваемости студентов
+ * Использовать функционал для строк и StringBuilder
+ */
 package hw.hw_2.task2;
 
 public class Hw2_2 {
@@ -5,6 +10,7 @@ public class Hw2_2 {
     public static String[] studentsList = null;
     public static String[] gradesList = null;
     public static String[] classesList = null;
+    public static String[] reportsList = null;
 
     public static void getListStudentsGrades() {
 
@@ -32,47 +38,28 @@ public class Hw2_2 {
 
         splitJsonStr(juornal);
 
-        System.out.println(studentsList[0]); // для проверки
-        System.out.println(gradesList[0]); // для проверки
-        System.out.println(classesList[0]); // для проверки
+        // System.out.println(studentsList[0]); // для проверки
+        // System.out.println(gradesList[0]); // для проверки
+        // System.out.println(classesList[0]); // для проверки
 
-        // ------------------------------Мусорка:
-        // jsonStr = "[{"фамилия":"Иванов","оценка":"5","предмет":"Математика"},
-        // {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"},
-        // {"фамилия":"Краснов","оценка":"5","предмет":"Физика"}]";
-        // // String jsonStr = ValueOf();
-        // // .replaceAll("\\[\\]\"", "");
+        showReportStudies();
 
-        // String[] inStr = new String();
+    }
 
-        // String[] jsonStr = new String[]
-        // {"фамилия":"Иванов","оценка":"5","предмет":"Математика"},
-        // {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"},
-        // {"фамилия":"Краснов","оценка":"5","предмет":"Физика"};
-        // .split(",");
-        // .replaceAll("[^a-zA-Z0-9]", " ");
-        // ------------------------
-        // String jsonStr = new
-        // String("[{"фамилия":"Иванов","оценка":"5","предмет":"Математика"},"
-        // {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"},
-        // {"фамилия":"Краснов","оценка":"5","предмет":"Физика"}]".replaceAll("[]\"",
-        // "").toString());
-        // String jsonInStr = "Bcvbn hjjkkl][pokj]";
-        // String[] jsonInStr = ("Bcvbn hjjkkl][pokj]".split("\\["));
-        // // jsonInStr.replaceAll("[]", " ");
-        // System.out.println(jsonInStr[1]);
-        // System.out.println("[{"фамилия":"Иванов","оценка":"5","предмет":"Математика"},
-        // {"фамилия":"Петрова","оценка":"4","предмет":"Информатика"},
-        // {"фамилия":"Краснов","оценка":"5","предмет":"Физика"}]".replace("\"", ""));
-        // System.out.println(str);
+    private static void showReportStudies() {
+        StringBuilder reportStudies = new StringBuilder();
 
-        // String str = jsonInStr.replaceAll("^[", "");
-        // // .toString();
-        // System.out.println(str);
-        // ---------------------------------------
+        for (int i = 0; i < studentsList.length; i++) {
+            String template = String.join(" ", "Студент", studentsList[i], "получил", gradesList[i], "по предмету",
+                    classesList[i]) + ".\n";
+            // System.out.println(template); // для проверки
+            reportStudies.append(template);
+            // reportsList[i] = template;
 
-        // StringBuilder builder = new StringBuilder();
-
+        }
+        System.out.println("Отчет об успеваемости студентов: ");
+        System.out.println(reportStudies); // для проверки
+        // reportsList = reportStudies.toString().split(".");
     }
 
     public static void splitJsonStr(String[] inStrings) {
