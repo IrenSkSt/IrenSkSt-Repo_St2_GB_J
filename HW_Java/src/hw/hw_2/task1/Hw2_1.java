@@ -12,12 +12,14 @@ import java.util.Scanner;
  */
 public class Hw2_1 {
 
-    // private static final Logger LOG = Log.log(Hw2_1.class.getName());
+    private static final Logger LOG = Log.Log(Hw2_1.class.getName());
 
     public static void sortBoobleArrNum() {
 
         int[] arrInt = randomArrIntNum();
         // System.out.println(Arrays.toString(arrInt)); // для проверки
+        LOG.log(Level.INFO, "Входящий массив: " + Arrays.toString(arrInt));
+
         if (arrInt.length != 0) {
             for (int i = 0; i < arrInt.length; i++) {
                 for (int j = 0; j < arrInt.length - 1; j++) {
@@ -35,9 +37,10 @@ public class Hw2_1 {
         }
     }
 
-    private static Object getName() {
-        return null;
-    }
+    // private static String getFIlesInFolder(String path) {
+
+    // return result;
+    // }
 
     public static int[] randomArrIntNum() {
         int[] arrNums = new int[0];

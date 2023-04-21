@@ -1,4 +1,4 @@
-package hw.hw_2;
+package hw.hw_2.task1;
 
 import java.io.FileInputStream;
 import java.util.logging.LogManager;
