@@ -17,15 +17,14 @@ public class Hw4_2 {
     public static Queue<Integer> queueMy = new LinkedList<>();
 
     public static void manageQueue() {
-        int firstNow;
 
         System.out.println("Состояние очереди на каждой итерации: ");
-        // иммитация наполнения очереди
+        // Иммитация наполнения очереди
         int amountPush = (int) (Math.random() * 10) + 3; // от 3 до 12
         for (int i = 0; i < amountPush; i++) {
             addInEndQueue();
         }
-        // firstNow = getFirstItem();
+
         // Иммитация обработки очереди - всегда 1й элемент из очереди
         for (int i = 0; i < queueMy.size() / 2; i++) {
             getFirstItem(); // взяли в работу из очереди
@@ -36,7 +35,7 @@ public class Hw4_2 {
             throw new RuntimeException("Сейчас очереди нет.");
         } else {
             System.out.println("Текущее состояние очереди: ");
-            firstNow = getFirstItem();
+            getFirstItem();
             System.out.println("Всего элементов в очереди = " + queueMy.size());
 
         }
@@ -68,6 +67,5 @@ public class Hw4_2 {
 
         System.out.println(queueMy);
 
-        // System.out.println(queueMy);
     }
 }

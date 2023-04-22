@@ -16,7 +16,7 @@ public class Hw4_1 {
 
         List<Integer> reverseLL = new LinkedList<>();
         fillRandomIntLinkedList();
-        // System.arraycopy(myLinkedList, 0, reverseLL, 0, myLinkedList.size());
+
         ListIterator<Integer> listIterator = myLinkedList.listIterator(myLinkedList.size());
         while (listIterator.hasPrevious()) {
             reverseLL.add(listIterator.previous());
