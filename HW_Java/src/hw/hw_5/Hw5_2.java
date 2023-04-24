@@ -29,15 +29,18 @@ public class Hw5_2 {
 
     private static void showSortedFullNames() {
         Integer maxCount = Collections.max(NameToCount_Map.values());
+        // System.out.println(maxCount); // для проверки
 
         for (Integer count = maxCount; count > 0; count--) {
             for (var item : NameToCount_Map.entrySet()) {
-                if (item.getValue() == count)
-                    System.out.printf("(%d) %n", item.getValue());
+                if (item.getValue() == count && count > 1)
+                    System.out.printf("%s (%d) %n", item.getKey(), item.getValue());
+                if (item.getValue() == count && count == 1)
+                    System.out.printf("%s %n", item.getKey());
             }
 
         }
-        System.out.println(maxCount); // для проверки
+
     }
 
     private static void sortFullNamesWokers() {
