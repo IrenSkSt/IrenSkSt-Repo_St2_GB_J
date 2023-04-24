@@ -121,6 +121,9 @@ public class Hw5_1 {
 
     }
 
+    public static void sortListWokers() {
+    }
+
     // ЧЕРНОВИК
     // private static void writeNewContact() {
     // // String temp = numsList.get(0);
