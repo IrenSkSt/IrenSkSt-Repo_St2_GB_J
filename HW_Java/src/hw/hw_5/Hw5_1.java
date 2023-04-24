@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * ВАЖНО!!! Реализовано с имитацией пользовательских действий (без
- * пользовательского интерфейса)
+ * пользовательского интерфейса на вход данных)
  */
 public class Hw5_1 {
 
@@ -36,11 +36,11 @@ public class Hw5_1 {
         // Имитация изменения текущего контакта
         String name = "Алексеев";
         addPhoneInContact(name, 4);
-        showPhoneBook(); // для проверки
+        // showPhoneBook(); // для проверки
 
         name = "стилист";
         renameContact(name, "стилист Вера");
-        showPhoneBook(); // для проверки
+        // showPhoneBook(); // для проверки
 
         // Имитация поиска контакта
         name = "массаж";
@@ -49,7 +49,7 @@ public class Hw5_1 {
         // Имитация удаления контакта
         name = "массаж";
         deleteContact(name);
-        showContact(name); // для проверки
+        // showContact(name); // для проверки
 
         showPhoneBook();
     }
@@ -59,8 +59,8 @@ public class Hw5_1 {
             newPphoneNumsList.addAll(NameToPhone_Map.get(name));
             NameToPhone_Map.put(newName, new ArrayList<>(newPphoneNumsList));
 
-            System.out.printf("Вы перименовали контакт %s в %s %s %n ", name, newName, NameToPhone_Map.get(newName));
-
+            System.out.printf("Вы перименовали контакт %s в %s %s %n", name, newName, NameToPhone_Map.get(newName));
+            System.out.println("-------------------");
             deleteContact(name);
         } else {
             throw new RuntimeException("Такого контакта не найдено.");
@@ -69,7 +69,8 @@ public class Hw5_1 {
 
     private static void deleteContact(String name) {
         if (NameToPhone_Map.containsKey(name)) {
-
+            System.out.println("Вы удалили контакт: " + name);
+            System.out.println("-------------------");
             NameToPhone_Map.remove(name);
         } else {
             throw new RuntimeException("Такого контакта не найдено.");
@@ -80,6 +81,7 @@ public class Hw5_1 {
         if (NameToPhone_Map.containsKey(name)) {
             System.out.println("Вы искали: " + name);
             System.out.printf("%s %s %n", name, NameToPhone_Map.get(name));
+            System.out.println("-------------------");
         } else {
             throw new RuntimeException("Такого контакта не найдено.");
         }
@@ -103,7 +105,7 @@ public class Hw5_1 {
 
             System.out.printf("Вы добавили в контакт %s новый телефон: %s %n", name,
                     NameToPhone_Map.get(name).get(newPphoneNumsList.lastIndexOf(numsList.get(num))));
-
+            System.out.println("-------------------");
             newPphoneNumsList.clear();
             // System.out.println(NameToPhone_Map.get("Алексеев").get(1)); // для проверки
         } else {
