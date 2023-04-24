@@ -121,29 +121,4 @@ public class Hw5_1 {
 
     }
 
-    public static void sortListWokers() {
-    }
-
-    // ЧЕРНОВИК
-    // private static void writeNewContact() {
-    // // String temp = numsList.get(0);
-    // // System.out.println(temp); // для проверки
-    // newPphoneNumsList.add("123456");
-    // // newPphoneNumsList.add(numsList.get(0));
-    // NameToPhone_Map.put("Алексеев", new ArrayList<>(newPphoneNumsList));
-    // newPphoneNumsList.clear();
-
-    // newPphoneNumsList.add("654321");
-    // NameToPhone_Map.put("Яковлев", new ArrayList<>(newPphoneNumsList));
-    // newPphoneNumsList.clear();
-
-    // newPphoneNumsList.addAll(NameToPhone_Map.get("Алексеев"));
-    // // newPphoneNumsList.add(numsList.get(2));
-    // newPphoneNumsList.add("123123");
-    // // System.out.println(newPphoneNumsList); // для проверки
-    // NameToPhone_Map.put("Алексеев", new ArrayList<>(newPphoneNumsList));
-    // newPphoneNumsList.clear();
-
-    // System.out.println(NameToPhone_Map.get("Алексеев").get(1));
-    // }
 }

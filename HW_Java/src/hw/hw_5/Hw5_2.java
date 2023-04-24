@@ -80,25 +80,6 @@ public class Hw5_2 {
             e.printStackTrace();
         }
 
-        // ЧЕРНОВИК
-        // try {
-
-        // BufferedReader br = new BufferedReader(new InputStreamReader(new
-        // FileInputStream(file)));
-        // String line;
-
-        // while ((line = br.readLine()) != null) {
-
-        // // do something with line
-
-        // }
-        // br.close();
-
-        // } catch (IOException e) {
-        // System.out.println("ERROR: unable to read file " + file);
-        // e.printStackTrace();
-        // }
-
     }
 
 }
