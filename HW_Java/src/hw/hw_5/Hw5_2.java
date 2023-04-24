@@ -30,7 +30,7 @@ public class Hw5_2 {
     private static void showSortedFullNames() {
         Integer maxCount = Collections.max(NameToCount_Map.values());
         // System.out.println(maxCount); // для проверки
-
+        System.out.println("Количество полных совпадений по Имени и Фамилии в порядке убывания:");
         for (Integer count = maxCount; count > 0; count--) {
             for (var item : NameToCount_Map.entrySet()) {
                 if (item.getValue() == count && count > 1)
@@ -62,7 +62,7 @@ public class Hw5_2 {
 
         }
         NameToCount_Map.put(fullName, count);
-        System.out.println(NameToCount_Map); // для проверки
+        // System.out.println(NameToCount_Map); // для проверки
     }
 
     private static void readDataListWokers(String fileName) {
