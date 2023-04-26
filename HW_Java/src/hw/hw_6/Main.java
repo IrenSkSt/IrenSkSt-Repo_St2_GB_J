@@ -1,4 +1,6 @@
 import java.lang.Character.Subset;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -31,8 +33,10 @@ public class Main {
 
         System.out.println("Модельный ряд ноутбуков: ");
         System.out.println(laptopsList);
+        System.out.println();
 
         Map<Integer, Laptop> laptops = new HashMap<>();
+        // каталог ноутбуков
         int k = 1;
         for (Laptop laptop : laptopsList) {
             laptops.put(k, laptop);
@@ -42,15 +46,37 @@ public class Main {
         // System.out.println(laptops); // для проверки
         // System.out.println(laptops.get(1).brand); // для проверки
 
+        // ------------Формирование ФИЛЬТРОВ----------------------------
         Set<Integer> listRam = new TreeSet<>();
         // перечень значений параметра в имеющемся модельном ряду Ноутбуков
         for (var item : laptops.entrySet()) {
             listRam.add(item.getValue().ram);
         }
-        System.out.println(listRam); // для проверки
+        // System.out.println(listRam); // для проверки
+
+        Map<String, ArrayList<String>> filters_Map = new HashMap<>();
+        // Набор фильтров
+        ArrayList<String> typeBrands = new ArrayList<>();
+        for (Brand en : Brand.values()) {
+            typeBrands.add(en.name());
+        }
+        filters_Map.put("Brand", new ArrayList<String>(typeBrands));
+        System.out.println(filters_Map);
+        // _________________________________________________________________
+
+        // ----------------Ответ на запрос юзера по фильтру------------------
+        Set<Laptop> listFilterLaptops = new HashSet<>();
+        // Итоговый вывод пользователю по фильтру
+        System.out.println("Ноутбуки по Вашему запросу: ");
+        for (var item : laptops.entrySet()) {
+            listFilterLaptops.add(item.getValue());
+        }
+        System.out.println(listFilterLaptops); // для проверки
+        System.out.println();
 
         // // -----------ВАРИАНТ 1 решения вывода пользователю по фильтру
-        // // ПРОСТЕЙШИЙ вариант вывода по фильтру:
+
+        // // ПРОСТЕЙШИЙ вариант вывода по фильтру (не прикручен к запросу юзера):
         // String filterBrand = "ASUS";
         // System.out.printf("Вывод по фильтру %s: %n", filterBrand);
         // for (int i = 1; i < laptops.size() + 1; i++) {
