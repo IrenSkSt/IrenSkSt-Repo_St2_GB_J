@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -61,7 +62,21 @@ public class Main {
             typeBrands.add(en.name());
         }
         filters_Map.put("Brand", new ArrayList<String>(typeBrands));
+
+        ArrayList<String> typeColors = new ArrayList<>();
+        for (Color en : Color.values()) {
+            typeColors.add(en.name());
+        }
+        filters_Map.put("Color", new ArrayList<String>(typeColors));
+
+        ArrayList<String> typeRam = new ArrayList<>();
+        for (Integer num : listRam) {
+            typeRam.add(num.toString());
+        }
+        filters_Map.put("Ram", new ArrayList<String>(typeRam));
+
         System.out.println(filters_Map);
+        System.out.println();
         // _________________________________________________________________
 
         // ----------------Ответ на запрос юзера по фильтру------------------
