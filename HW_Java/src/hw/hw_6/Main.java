@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,6 +15,9 @@ import java.util.TreeSet;
  */
 public class Main {
 
+    // public static Map<String, ArrayList<String>> filters_Map = new HashMap<>();
+
+    // Набор фильтров
     public static void main(String[] args) {
         Laptop laptop1 = new Laptop(Brand.ASUS, Color.BLACK, 4);
         Laptop laptop2 = new Laptop(Brand.ASUS, Color.BLACK, 4);
@@ -22,6 +26,7 @@ public class Main {
         Laptop laptop5 = new Laptop(Brand.LENOVO, Color.GRAY, 8);
 
         Set<Laptop> laptopsList = new HashSet<>();
+        // Администраторы добавили в каталог (Список подгрузки в Каталог Ноутбуков)
         laptopsList.add(laptop1);
         laptopsList.add(laptop2);
         laptopsList.add(laptop3);
@@ -37,7 +42,7 @@ public class Main {
         System.out.println();
 
         Map<Integer, Laptop> laptops = new HashMap<>();
-        // каталог ноутбуков
+        // Ккаталог ноутбуков
         int k = 1;
         for (Laptop laptop : laptopsList) {
             laptops.put(k, laptop);
@@ -48,15 +53,16 @@ public class Main {
         // System.out.println(laptops.get(1).brand); // для проверки
 
         // ------------Формирование ФИЛЬТРОВ----------------------------
+        Map<String, ArrayList<String>> filters_Map = new HashMap<>();
+        // Набор фильтров
+
         Set<Integer> listRam = new TreeSet<>();
-        // перечень значений параметра в имеющемся модельном ряду Ноутбуков
+        // перечень значений параметра в имеющемся в модельном ряду Ноутбуков
         for (var item : laptops.entrySet()) {
             listRam.add(item.getValue().ram);
         }
         // System.out.println(listRam); // для проверки
 
-        Map<String, ArrayList<String>> filters_Map = new HashMap<>();
-        // Набор фильтров
         ArrayList<String> typeBrands = new ArrayList<>();
         for (Brand en : Brand.values()) {
             typeBrands.add(en.name());
@@ -75,8 +81,49 @@ public class Main {
         }
         filters_Map.put("Ram", new ArrayList<String>(typeRam));
 
-        System.out.println(filters_Map);
+        System.out.println(filters_Map); // для проверки
         System.out.println();
+        // _________________________________________________________________
+
+        // ---------Получить фильтры от юзера----------------------------------
+        // Map<String, ArrayList<String>> filters_User = new HashMap<>(filters_Map);
+        // для нескольких фильтров одновременно - не сднлано
+
+        Map<String, ArrayList<String>> filters_User = new HashMap<>();
+        System.out.println("Выберите фильтр: ");
+        System.out.println("  0 = Показать всё");
+        int n = 1;
+        for (var item : filters_Map.entrySet()) {
+            System.out.printf("  %d = %s %n", n, item.getKey());
+            n++;
+        }
+        Scanner iScanner = new Scanner(System.in);
+        System.out.printf("Укажите номер соотвествующего фильтра: ");
+        boolean flag = iScanner.hasNextInt();
+        int answerKey = iScanner.nextInt();
+
+        if (answerKey == 0 || answerKey != 1 || answerKey != 2 || answerKey != 3) {
+            filters_User = new HashMap<>(filters_Map);
+        } else {
+            System.out.println("Выберите значение фильтра: ");
+            System.out.println("  0 = Показать все");
+            n = 1;
+            if (answerKey == 1) {
+                for (var item : filters_Map.get("Brand")) {
+                    System.out.printf("  %d = %s %n", n, item);
+                    n++;
+                }
+            }
+            System.out.printf("Укажите номер соотвествующего фильтра: ");
+            boolean flag1 = iScanner.hasNextInt();
+            int answerV = iScanner.nextInt();
+        }
+
+        iScanner.close();
+
+        // System.out.println(filters_User); // для проверки
+        // FiltersGetFromUsers.createUserFilters();
+
         // _________________________________________________________________
 
         // ----------------Ответ на запрос юзера по фильтру------------------
@@ -113,4 +160,5 @@ public class Main {
         // }
         // // а можно объединить в одном фильтре все признаки
     }
+
 }
