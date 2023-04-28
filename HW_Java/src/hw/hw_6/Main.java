@@ -89,53 +89,94 @@ public class Main {
 
         // ---------Получить фильтры от юзера----------------------------------
         // Map<String, ArrayList<String>> filters_User = new HashMap<>(filters_Map);
-        // для нескольких фильтров одновременно - не сднлано
+        // для нескольких фильтров одновременно - не сделано
 
-        Map<String, ArrayList<String>> filters_User = new HashMap<>();
+        Map<String, String> filters_User = new HashMap<>();
         System.out.println("Выберите фильтр: ");
         System.out.println("  0 = Показать всё");
+        String keyFilter = "";
+        String valueFilter = "";
         int n = 1;
-        String[] arr = new String[filters_Map.size()];
+        String[] arrKey = new String[filters_Map.size()];
         for (var item : filters_Map.entrySet()) {
-            arr[n - 1] = item.getKey().toString();
+            arrKey[n - 1] = item.getKey().toString();
             System.out.printf("  %d = %s %n", n, item.getKey());
             n++;
         }
-        System.out.println(arr[1]); // для проверки
+        // System.out.println(arrKey[1]); // для проверки
 
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("Укажите номер соотвествующего фильтра: ");
         boolean flag = iScanner.hasNextInt();
-        int answerKey = iScanner.nextInt();
+        int answerKey;
+        if (flag)
+            answerKey = iScanner.nextInt();
+        else
+            answerKey = 0;
         // System.out.println(answerKey); // для проверки
 
-        // System.out.println(answerKey == 1);
-        if (answerKey == 0 || answerKey != 1 || answerKey != 2 || answerKey != 3) {
-            filters_User = new HashMap<>(filters_Map);
-            System.out.println();
-        } else {
-            System.out.println("Выберите значение фильтра: ");
-            System.out.println("  0 = Показать все");
-            n = 1;
-            // for (int i = 0; i < arr.length; i++) {
-            // if (answerKey == i){
-            // for (var item : filters_Map.get(arr[i])) {
-            // System.out.printf(" %d = %s %n", n, item);
-            // n++;
+        // ----ЧЕРНОВИК-----------
+        // System.out.println(answerKey == 1); // для проверки
+        // if (answerKey == 0 || answerKey != 1 || answerKey != 2 || answerKey != 3) {
+        // filters_User = new HashMap<>(filters_Map);
+        // System.out.println(filters_User);
+        // } else {
+        // System.out.println("Выберите значение фильтра: ");
+        // System.out.println(" 0 = Показать все");
+        // n = 1;
+        // // for (int i = 0; i < arr.length; i++) {
+        // // if (answerKey == i){
+        // // for (var item : filters_Map.get(arr[i])) {
+        // // System.out.printf(" %d = %s %n", n, item);
+        // // n++;
 
-            // }
-            // }
-            if (answerKey == 1) {
-                // for (var item : filters_Map.get(arr[n - 1])) {
-                // System.out.printf(" %d = %s %n", n, item);
-                // n++;
-                // }
+        // // }
+        // // }
+        // if (answerKey == 1) {
+        // // for (var item : filters_Map.get(arr[n - 1])) {
+        // // System.out.printf(" %d = %s %n", n, item);
+        // // n++;
+        // // }
+        // }
+        // System.out.printf("Укажите номер соотвествующего фильтра: ");
+        // boolean flag1 = iScanner.hasNextInt();
+        // int answerV = iScanner.nextInt();
+        // }
+        // ____________________________________________________________
+        for (int i = 1; i < arrKey.length + 1; i++) {
+            if (answerKey == i) {
+                keyFilter = arrKey[i - 1];
+                System.out.println(keyFilter); // для проверки
+
+                System.out.printf("Выберите значение фильтра %s: %n", keyFilter);
+                System.out.println(" 0 = Показать все");
+                n = 1;
+                for (var item : filters_Map.get(arrKey[i - 1])) {
+                    System.out.printf(" %d = %s %n", n, item);
+                    n++;
+                }
+                System.out.printf("Укажите номер значения фильтра: ");
+                // по аналогии = проставить галочки напротив имеющихся значений
+                boolean flag1 = iScanner.hasNextInt();
+                int answerV;
+                if (flag1)
+                    answerV = iScanner.nextInt();
+                else
+                    answerV = 0;
+
+                // System.out.println(answerV); // для проверки
+                for (int j = 1; j < arrKey.length + 1; j++) {
+                    if (answerV == j)
+                        valueFilter = filters_Map.get(arrKey[i - 1]).get(answerV - 1);
+                    // System.out.println(valueFilter); // для проверки
+
+                    filters_User.put(arrKey[i - 1], valueFilter);
+                }
+
+                // System.out.println(filters_User); // для проверки
             }
-            System.out.printf("Укажите номер соотвествующего фильтра: ");
-            boolean flag1 = iScanner.hasNextInt();
-            int answerV = iScanner.nextInt();
-        }
 
+        }
         iScanner.close();
 
         // System.out.println(filters_User); // для проверки
@@ -146,12 +187,17 @@ public class Main {
         // ----------------Ответ на запрос юзера по фильтру------------------
         Set<Laptop> listFilterLaptops = new HashSet<>();
         // Итоговый вывод пользователю по фильтру
-        System.out.println("Ноутбуки по Вашему запросу: ");
-        for (var item : laptops.entrySet()) {
-            listFilterLaptops.add(item.getValue());
+        if (keyFilter == "" || valueFilter == "") {
+            System.out.println("Все Ноутбуки: ");
+            for (var item : laptops.entrySet()) {
+                listFilterLaptops.add(item.getValue());
+                System.out.println(item.getValue());
+            }
+        } else {
+            System.out.println("Ноутбуки по Вашему запросу: ");
+            System.out.println(listFilterLaptops); // для проверки
+            System.out.println();
         }
-        System.out.println(listFilterLaptops); // для проверки
-        System.out.println();
 
         // // -----------ВАРИАНТ 1 решения вывода пользователю по фильтру
 
@@ -177,5 +223,4 @@ public class Main {
         // }
         // // а можно объединить в одном фильтре все признаки
     }
-
 }
