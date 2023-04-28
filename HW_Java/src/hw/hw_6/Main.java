@@ -89,7 +89,7 @@ public class Main {
 
         // ---------Получить фильтры от юзера----------------------------------
         // Map<String, ArrayList<String>> filters_User = new HashMap<>(filters_Map);
-        // для нескольких фильтров одновременно - не сделано
+        // для нескольких фильтров одновременно - НЕ СДЕЛАНО пока
 
         Map<String, String> filters_User = new HashMap<>();
         System.out.println("Выберите фильтр: ");
@@ -195,6 +195,32 @@ public class Main {
             }
         } else {
             System.out.println("Ноутбуки по Вашему запросу: ");
+            for (Laptop laptop : laptopsList) {
+
+                for (var elem : filters_User.entrySet()) {
+                    if (elem.getKey() == "Brand" && laptop.brand.toString() == elem.getValue()) {
+                        // System.out.println(laptop.brand.toString() == elem.getValue()); // для
+                        // проверки
+                        listFilterLaptops.add(laptop);
+                        System.out.println(laptop);
+                    }
+                }
+
+            }
+            // for (var item : laptops.entrySet()) {
+            // for (var laptop : item.getValue()) {
+
+            // }
+            // for (var elem : filters_User.entrySet()) {
+            // String enum = filters_User.getKey();
+            // System.out.println(item.getValue().enum == filters_User.getValue());
+            // // if (item.getValue().filters_User.getKey() == filters_User.getValue()) {
+            // // listFilterLaptops.add(item.getValue());
+            // // System.out.println(item.getValue());
+            // // }
+            // }
+
+            // }
             System.out.println(listFilterLaptops); // для проверки
             System.out.println();
         }
