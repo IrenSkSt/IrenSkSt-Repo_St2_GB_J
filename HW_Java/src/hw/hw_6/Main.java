@@ -9,6 +9,8 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
+import javax.swing.Spring;
+
 /**
  * Задача 1
  * Ноутбук для магазина техники
@@ -93,26 +95,41 @@ public class Main {
         System.out.println("Выберите фильтр: ");
         System.out.println("  0 = Показать всё");
         int n = 1;
+        String[] arr = new String[filters_Map.size()];
         for (var item : filters_Map.entrySet()) {
+            arr[n - 1] = item.getKey().toString();
             System.out.printf("  %d = %s %n", n, item.getKey());
             n++;
         }
+        System.out.println(arr[1]); // для проверки
+
         Scanner iScanner = new Scanner(System.in);
         System.out.printf("Укажите номер соотвествующего фильтра: ");
         boolean flag = iScanner.hasNextInt();
         int answerKey = iScanner.nextInt();
+        // System.out.println(answerKey); // для проверки
 
+        // System.out.println(answerKey == 1);
         if (answerKey == 0 || answerKey != 1 || answerKey != 2 || answerKey != 3) {
             filters_User = new HashMap<>(filters_Map);
+            System.out.println();
         } else {
             System.out.println("Выберите значение фильтра: ");
             System.out.println("  0 = Показать все");
             n = 1;
+            // for (int i = 0; i < arr.length; i++) {
+            // if (answerKey == i){
+            // for (var item : filters_Map.get(arr[i])) {
+            // System.out.printf(" %d = %s %n", n, item);
+            // n++;
+
+            // }
+            // }
             if (answerKey == 1) {
-                for (var item : filters_Map.get("Brand")) {
-                    System.out.printf("  %d = %s %n", n, item);
-                    n++;
-                }
+                // for (var item : filters_Map.get(arr[n - 1])) {
+                // System.out.printf(" %d = %s %n", n, item);
+                // n++;
+                // }
             }
             System.out.printf("Укажите номер соотвествующего фильтра: ");
             boolean flag1 = iScanner.hasNextInt();
