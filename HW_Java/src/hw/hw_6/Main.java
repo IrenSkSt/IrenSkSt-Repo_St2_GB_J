@@ -146,7 +146,6 @@ public class Main {
 
         }
         iScanner.close();
-
         // System.out.println(filters_User); // для проверки
         // _________________________________________________________________
 
