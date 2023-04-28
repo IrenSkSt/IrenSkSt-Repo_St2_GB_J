@@ -1,15 +1,10 @@
-import java.lang.Character.Subset;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
-
-import javax.swing.Spring;
 
 /**
  * Задача 1
@@ -17,9 +12,6 @@ import javax.swing.Spring;
  */
 public class Main {
 
-    // public static Map<String, ArrayList<String>> filters_Map = new HashMap<>();
-
-    // Набор фильтров
     public static void main(String[] args) {
         Laptop laptop1 = new Laptop(Brand.ASUS, Color.BLACK, 4);
         Laptop laptop2 = new Laptop(Brand.ASUS, Color.BLACK, 4);
@@ -28,7 +20,8 @@ public class Main {
         Laptop laptop5 = new Laptop(Brand.LENOVO, Color.GRAY, 8);
 
         Set<Laptop> laptopsList = new HashSet<>();
-        // Администраторы добавили в каталог (Список подгрузки в Каталог Ноутбуков)
+        // Имитация: Администраторы добавили в каталог
+        // (=Список подгрузки в Каталог Ноутбуков)
         laptopsList.add(laptop1);
         laptopsList.add(laptop2);
         laptopsList.add(laptop3);
@@ -113,40 +106,13 @@ public class Main {
             answerKey = iScanner.nextInt();
         else
             answerKey = 0;
+        System.out.println();
         // System.out.println(answerKey); // для проверки
 
-        // ----ЧЕРНОВИК-----------
-        // System.out.println(answerKey == 1); // для проверки
-        // if (answerKey == 0 || answerKey != 1 || answerKey != 2 || answerKey != 3) {
-        // filters_User = new HashMap<>(filters_Map);
-        // System.out.println(filters_User);
-        // } else {
-        // System.out.println("Выберите значение фильтра: ");
-        // System.out.println(" 0 = Показать все");
-        // n = 1;
-        // // for (int i = 0; i < arr.length; i++) {
-        // // if (answerKey == i){
-        // // for (var item : filters_Map.get(arr[i])) {
-        // // System.out.printf(" %d = %s %n", n, item);
-        // // n++;
-
-        // // }
-        // // }
-        // if (answerKey == 1) {
-        // // for (var item : filters_Map.get(arr[n - 1])) {
-        // // System.out.printf(" %d = %s %n", n, item);
-        // // n++;
-        // // }
-        // }
-        // System.out.printf("Укажите номер соотвествующего фильтра: ");
-        // boolean flag1 = iScanner.hasNextInt();
-        // int answerV = iScanner.nextInt();
-        // }
-        // ____________________________________________________________
         for (int i = 1; i < arrKey.length + 1; i++) {
             if (answerKey == i) {
                 keyFilter = arrKey[i - 1];
-                System.out.println(keyFilter); // для проверки
+                // System.out.println(keyFilter); // для проверки
 
                 System.out.printf("Выберите значение фильтра %s: %n", keyFilter);
                 System.out.println(" 0 = Показать все");
@@ -163,6 +129,7 @@ public class Main {
                     answerV = iScanner.nextInt();
                 else
                     answerV = 0;
+                System.out.println();
                 // System.out.println(answerV); // для проверки
                 // System.out.println(n); // для проверки
 
@@ -181,8 +148,6 @@ public class Main {
         iScanner.close();
 
         // System.out.println(filters_User); // для проверки
-        // FiltersGetFromUsers.createUserFilters();
-
         // _________________________________________________________________
 
         // ----------------Ответ на запрос юзера по фильтру------------------
@@ -195,7 +160,7 @@ public class Main {
                 System.out.println(item.getValue());
             }
         } else {
-            System.out.println("Ноутбуки по Вашему запросу: ");
+            System.out.printf("Ноутбуки по Вашему запросу: %s %n", filters_User);
             for (Laptop laptop : laptopsList) {
 
                 for (var elem : filters_User.entrySet()) {
