@@ -81,7 +81,7 @@ public class Main {
         for (Integer num : listRam) {
             typeRam.add(num.toString());
         }
-        filters_Map.put("Ram", new ArrayList<String>(typeRam));
+        filters_Map.put("ram", new ArrayList<String>(typeRam));
 
         System.out.println(filters_Map); // для проверки
         System.out.println();
@@ -163,9 +163,10 @@ public class Main {
                     answerV = iScanner.nextInt();
                 else
                     answerV = 0;
-
                 // System.out.println(answerV); // для проверки
-                for (int j = 1; j < arrKey.length + 1; j++) {
+                // System.out.println(n); // для проверки
+
+                for (int j = 1; j < n; j++) {
                     if (answerV == j)
                         valueFilter = filters_Map.get(arrKey[i - 1]).get(answerV - 1);
                     // System.out.println(valueFilter); // для проверки
@@ -198,30 +199,42 @@ public class Main {
             for (Laptop laptop : laptopsList) {
 
                 for (var elem : filters_User.entrySet()) {
+                    // System.out.println(laptop.brand.toString() == elem.getValue()); // для
+                    // проверки
                     if (elem.getKey() == "Brand" && laptop.brand.toString() == elem.getValue()) {
-                        // System.out.println(laptop.brand.toString() == elem.getValue()); // для
-                        // проверки
+
                         listFilterLaptops.add(laptop);
                         System.out.println(laptop);
                     }
+                    if (elem.getKey() == "Color" && laptop.color.toString() == elem.getValue()) {
+
+                        listFilterLaptops.add(laptop);
+                        System.out.println(laptop);
+                    }
+                    // System.out.println(laptop.ram == Integer.parseInt("8")); // для проверки
+                    if (elem.getKey() == "ram" && laptop.ram == Integer.parseInt(elem.getValue())) {
+
+                        listFilterLaptops.add(laptop);
+                        System.out.println(laptop);
+                    }
+
+                    // -----версия свернутая------
+                    // if (elem.getKey() == "Brand" && laptop.brand.toString() == elem.getValue()
+                    // || elem.getKey() == "Color" && laptop.color.toString() == elem.getValue()
+                    // || elem.getKey() == "Ram" && laptop.ram.toString() ==
+                    // elem.getValue().toString()) {
+                    // // System.out.println(laptop.brand.toString() == elem.getValue()); // для
+                    // // проверки
+                    // listFilterLaptops.add(laptop);
+                    // System.out.println(laptop);
+                    // }
+                    // ________________________
                 }
 
             }
-            // for (var item : laptops.entrySet()) {
-            // for (var laptop : item.getValue()) {
-
-            // }
-            // for (var elem : filters_User.entrySet()) {
-            // String enum = filters_User.getKey();
-            // System.out.println(item.getValue().enum == filters_User.getValue());
-            // // if (item.getValue().filters_User.getKey() == filters_User.getValue()) {
-            // // listFilterLaptops.add(item.getValue());
-            // // System.out.println(item.getValue());
-            // // }
-            // }
-
-            // }
-            System.out.println(listFilterLaptops); // для проверки
+            if (listFilterLaptops.size() == 0)
+                System.out.println("По Вашему запросу ничего не найдено");
+            // System.out.println(listFilterLaptops); // для проверки
             System.out.println();
         }
 
